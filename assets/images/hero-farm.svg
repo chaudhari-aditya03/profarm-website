@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
+  <rect width="1200" height="700" fill="#e8f5e9"/>
+  <rect y="420" width="1200" height="280" fill="#a5d6a7"/>
+  <circle cx="1040" cy="120" r="70" fill="#ffecb3"/>
+  <path d="M0 420 Q140 340 280 420 T560 420 T840 420 T1200 420 V700 H0 Z" fill="#66bb6a"/>
+  <text x="60" y="110" fill="#1b5e20" font-family="Arial, sans-serif" font-size="44" font-weight="700">ProFarm</text>
+  <text x="60" y="160" fill="#2e7d32" font-family="Arial, sans-serif" font-size="24">Organic Farm Powder Products</text>
+</svg>

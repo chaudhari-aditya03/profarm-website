@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <rect width="800" height="600" fill="#fef3e2"/>
+  <circle cx="400" cy="300" r="170" fill="#ffe4b5"/>
+  <text x="240" y="315" fill="#8b4513" font-family="Arial, sans-serif" font-size="52" font-weight="700">Garlic Powder</text>
+</svg>

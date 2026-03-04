@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <rect width="800" height="600" fill="#fff3e0"/>
+  <rect x="130" y="180" width="540" height="260" rx="16" fill="#ffb74d"/>
+  <text x="200" y="325" fill="#e65100" font-family="Arial, sans-serif" font-size="56" font-weight="700">Organic Fruits</text>
+</svg>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#16A34A" />
+  <meta name="description" content="Learn about ProFarm - our mission to deliver pure, natural farm products with commitment to quality, sustainability, and modern food processing." />
+  <meta name="keywords" content="about ProFarm, organic farming, farm products, natural ingredients, sustainable agriculture" />
+  <meta name="author" content="ProFarm" />
+  <meta property="og:title" content="About ProFarm | Organic Farm Products" />
+  <meta property="og:description" content="Discover ProFarm's commitment to quality and sustainability in farm-to-table organic products." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="About ProFarm | Organic Farm Products" />
+  <title>About | ProFarm</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <!-- AOS - Animate On Scroll -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+<body>
+  <header class="bg-white/95 sticky top-0 z-40 border-b border-green-100 backdrop-blur-sm shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <a href="index.html" class="flex items-center gap-3 group">
+          <img src="./assets/images/logo1.jpeg" alt="ProFarm Logo" class="h-12 w-12 md:h-14 md:w-14 object-contain rounded-lg shadow-md group-hover:shadow-lg transition-all duration-300 group-hover:scale-105" />
+          <span class="text-xl md:text-2xl font-bold text-gray-700 group-hover:text-[#16A34A] transition-colors duration-300">ProFarm</span>
+        </a>
+        <div class="hidden md:flex items-center gap-8">
+          <nav class="flex items-center gap-6 text-sm font-medium text-gray-700">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="about.html" class="nav-link active">About</a>
+            <a href="products.html" class="nav-link">Products</a>
+            <a href="services.html" class="nav-link">Services</a>
+            <a href="gallery.html" class="nav-link">Gallery</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+          </nav>
+          <div class="flex items-center gap-2">
+            <a href="#" aria-label="Instagram" class="social-link">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/></svg>
+            </a>
+            <a href="#" aria-label="LinkedIn" class="social-link">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M6.94 8.5a1.44 1.44 0 1 1 0-2.88 1.44 1.44 0 0 1 0 2.88ZM5.7 9.7h2.5v8H5.7v-8Zm4.1 0h2.4v1.14h.03c.34-.64 1.17-1.31 2.4-1.31 2.56 0 3.03 1.69 3.03 3.89v4.28h-2.5v-3.8c0-.9-.02-2.06-1.25-2.06-1.25 0-1.44.97-1.44 1.98v3.88H9.8v-8Z"/></svg>
+            </a>
+            <a href="#" aria-label="WhatsApp" class="social-link">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 12a8.5 8.5 0 0 1-12.55 7.49L4 20l.56-3.77A8.5 8.5 0 1 1 20.5 12Zm-8.5-7a7 7 0 0 0-6.02 10.58l.24.4-.33 2.21 2.27-.31.38.23A7 7 0 1 0 12 5Zm3.86 8.8c-.2-.1-1.2-.6-1.38-.67-.19-.07-.33-.1-.46.1-.14.2-.53.67-.65.8-.12.14-.24.15-.44.05-.2-.1-.86-.32-1.63-1.02-.6-.54-1-1.2-1.12-1.4-.12-.2-.01-.3.08-.4.1-.1.2-.24.3-.36.1-.12.13-.2.2-.33.06-.14.03-.25-.02-.35-.05-.1-.46-1.1-.63-1.52-.17-.4-.34-.35-.46-.36h-.4c-.13 0-.35.05-.54.25-.19.2-.72.7-.72 1.71 0 1 .74 1.97.84 2.1.1.14 1.46 2.24 3.54 3.14.5.22.89.35 1.2.45.5.16.94.14 1.3.08.4-.06 1.2-.5 1.38-.97.17-.47.17-.88.12-.97-.05-.1-.18-.15-.38-.25Z"/></svg>
+            </a>
+          </div>
+        </div>
+        <button id="menu-button" class="md:hidden inline-flex items-center justify-center text-gray-700" aria-label="Open menu">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+      <nav id="mobile-menu" class="pb-4 pt-3 border-t border-green-100 gap-1 text-sm">
+        <a href="index.html" class="mobile-nav-link">Home</a>
+        <a href="about.html" class="mobile-nav-link active">About</a>
+        <a href="products.html" class="mobile-nav-link">Products</a>
+        <a href="services.html" class="mobile-nav-link">Services</a>
+        <a href="gallery.html" class="mobile-nav-link">Gallery</a>
+        <a href="contact.html" class="mobile-nav-link">Contact</a>
+        <div class="flex items-center gap-2 pt-2">
+          <a href="#" aria-label="Instagram" class="social-link">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="#" aria-label="LinkedIn" class="social-link">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M6.94 8.5a1.44 1.44 0 1 1 0-2.88 1.44 1.44 0 0 1 0 2.88ZM5.7 9.7h2.5v8H5.7v-8Zm4.1 0h2.4v1.14h.03c.34-.64 1.17-1.31 2.4-1.31 2.56 0 3.03 1.69 3.03 3.89v4.28h-2.5v-3.8c0-.9-.02-2.06-1.25-2.06-1.25 0-1.44.97-1.44 1.98v3.88H9.8v-8Z"/></svg>
+          </a>
+          <a href="#" aria-label="WhatsApp" class="social-link">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 12a8.5 8.5 0 0 1-12.55 7.49L4 20l.56-3.77A8.5 8.5 0 1 1 20.5 12Zm-8.5-7a7 7 0 0 0-6.02 10.58l.24.4-.33 2.21 2.27-.31.38.23A7 7 0 1 0 12 5Zm3.86 8.8c-.2-.1-1.2-.6-1.38-.67-.19-.07-.33-.1-.46.1-.14.2-.53.67-.65.8-.12.14-.24.15-.44.05-.2-.1-.86-.32-1.63-1.02-.6-.54-1-1.2-1.12-1.4-.12-.2-.01-.3.08-.4.1-.1.2-.24.3-.36.1-.12.13-.2.2-.33.06-.14.03-.25-.02-.35-.05-.1-.46-1.1-.63-1.52-.17-.4-.34-.35-.46-.36h-.4c-.13 0-.35.05-.54.25-.19.2-.72.7-.72 1.71 0 1 .74 1.97.84 2.1.1.14 1.46 2.24 3.54 3.14.5.22.89.35 1.2.45.5.16.94.14 1.3.08.4-.06 1.2-.5 1.38-.97.17-.47.17-.88.12-.97-.05-.1-.18-.15-.38-.25Z"/></svg>
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero text-white py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="text-4xl font-extrabold">About ProFarm</h1>
+        <p class="mt-4 text-lg text-green-50 max-w-3xl">We are a farmer-led enterprise focused on creating high-quality, value-added powder products from fresh agricultural produce.</p>
+      </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 grid lg:grid-cols-2 gap-10 items-center">
+      <img src="assets/images/aboutimg.jpeg" alt="Farm processing unit" class="rounded-2xl card-shadow" loading="lazy" />
+      <div>
+        <h2 class="text-3xl font-bold text-green-900 mb-4">Our Story</h2>
+        <p class="text-gray-700 mb-4">ProFarm is a forward-thinking company specializing in the dehydration of fruits and vegetables to reduce farm waste and post-harvest losses. By converting surplus produce into premium dried products, the company helps farmers overcome financial challenges during market price drops. Using advanced dehydration technology, ProFarm carefully maintains the natural color, flavor, and nutritional value of the produce. The company is committed to sustainability, farmer empowerment, and strengthening the agricultural value chain.</p>
+        <p class="text-gray-700 mb-6"></p>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div class="bg-white rounded-xl p-4 card-shadow">
+            <h3 class="font-semibold text-green-800">Mission</h3>
+            <p class="text-sm text-gray-600 mt-2">Deliver natural, safe, and affordable farm powder products.</p>
+          </div>
+          <div class="bg-white rounded-xl p-4 card-shadow">
+            <h3 class="font-semibold text-green-800">Vision</h3>
+            <p class="text-sm text-gray-600 mt-2">Build a resilient agro-processing brand trusted worldwide.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-[#14532D] text-green-50">
+    <!-- Main Footer Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        
+        <!-- Column 1: Logo & Description -->
+        <div>
+          <h3 class="text-2xl font-bold text-white mb-4">ProFarm</h3>
+          <p class="text-green-100 text-sm leading-relaxed">
+            Dedicated to bringing pure, natural farm products from our fields to your family. Commitment to quality, hygiene, and sustainability in every product.
+          </p>
+        </div>
+
+        <!-- Column 2: Quick Links -->
+        <div>
+          <h4 class="text-lg font-semibold text-white mb-6">Quick Links</h4>
+          <ul class="space-y-3">
+            <li><a href="index.html" class="text-green-100 hover:text-white transition-colors duration-200">Home</a></li>
+            <li><a href="about.html" class="text-green-100 hover:text-white transition-colors duration-200">About</a></li>
+            <li><a href="products.html" class="text-green-100 hover:text-white transition-colors duration-200">Products</a></li>
+            <li><a href="services.html" class="text-green-100 hover:text-white transition-colors duration-200">Services</a></li>
+            <li><a href="gallery.html" class="text-green-100 hover:text-white transition-colors duration-200">Gallery</a></li>
+            <li><a href="contact.html" class="text-green-100 hover:text-white transition-colors duration-200">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Contact Info -->
+        <div>
+          <h4 class="text-lg font-semibold text-white mb-6">Contact Info</h4>
+          <div class="space-y-4 text-sm">
+            <div>
+              <p class="text-green-200 font-medium mb-1">Address</p>
+              <p class="text-green-100">ProFarm Fields, Agricultural Zone<br />Organic Valley District, India</p>
+            </div>
+            <div>
+              <p class="text-green-200 font-medium mb-1">Phone</p>
+              <a href="tel:+91XXXXXXXXXX" class="text-green-100 hover:text-white transition-colors duration-200">+91 XXXXXXXXXX</a>
+            </div>
+            <div>
+              <p class="text-green-200 font-medium mb-1">Email</p>
+              <a href="mailto:info@profarm.com" class="text-green-100 hover:text-white transition-colors duration-200">info@profarm.com</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Column 4: Google Map -->
+        <div>
+          <h4 class="text-lg font-semibold text-white mb-4">Farm Location</h4>
+          <div class="rounded-lg overflow-hidden shadow-lg h-40 md:h-48">
+            <iframe 
+              src="https://www.google.com/maps?q=Pune,Maharashtra&output=embed"
+              width="100%" 
+              height="300" 
+              style="border:0;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade"
+              class="w-full h-full">
+            </iframe>
+          </div>
+        </div>
+      </div>
+
+      <!-- Divider -->
+      <div class="border-t border-green-800 pt-8 mb-8"></div>
+
+      <!-- Social Icons & Copyright -->
+      <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+        <!-- Social Icons -->
+        <div class="flex items-center gap-6">
+          <p class="text-green-200 font-medium">Follow Us:</p>
+          <div class="flex gap-4">
+            <a href="https://instagram.com/profarm" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-green-800 hover:bg-green-700 flex items-center justify-center transition-colors duration-200" title="Instagram">
+              <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2.163c3.204 0 3.584.011 4.85.07 1.366.062 2.633.335 3.608 1.31.975.975 1.248 2.242 1.31 3.608.059 1.266.07 1.646.07 4.85s-.011 3.584-.07 4.85c-.062 1.366-.335 2.633-1.31 3.608-.975.975-2.242 1.248-3.608 1.31-1.266.059-1.646.07-4.85.07s-3.584-.011-4.85-.07c-1.366-.062-2.633-.335-3.608-1.31-.975-.975-1.248-2.242-1.31-3.608-.059-1.266-.07-1.646-.07-4.85s.011-3.584.07-4.85c.062-1.366.335-2.633 1.31-3.608.975-.975 2.242-1.248 3.608-1.31 1.266-.059 1.646-.07 4.85-.07zm0-2.163C8.741 0 8.332.01 7.053.072 5.775.134 4.635.405 3.637 1.403 2.639 2.401 2.368 3.541 2.306 4.819.244 6.098.234 6.507.234 12s.01 5.902.072 7.181c.062 1.278.333 2.418 1.331 3.416.998.998 2.138 1.269 3.416 1.331 1.279.062 1.688.072 7.181.072s5.902-.01 7.181-.072c1.278-.062 2.418-.333 3.416-1.331.998-.998 1.269-2.138 1.331-3.416.062-1.279.072-1.688.072-7.181s-.01-5.902-.072-7.181c-.062-1.278-.333-2.418-1.331-3.416C19.598.405 18.458.134 17.18.072 15.898.01 15.489 0 12 0z"/>
+              </svg>
+            </a>
+            <a href="https://linkedin.com/company/profarm" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-green-800 hover:bg-green-700 flex items-center justify-center transition-colors duration-200" title="LinkedIn">
+              <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/>
+              </svg>
+            </a>
+            <a href="https://wa.me/917709648063" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-green-800 hover:bg-green-700 flex items-center justify-center transition-colors duration-200" title="WhatsApp">
+              <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.149-.792.372-.272.227-.1.879.061 1.386.16.507.833 1.23 1.02 1.43.188.199 2.613 4.005 6.34 5.61.884.38 1.575.544 2.113.69.886.276 1.695.138 2.33-.084.634-.22 1.944-.792 2.22-1.56.276-.764.276-1.416.194-1.554-.082-.138-.299-.224-.595-.372z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Copyright -->
+        <p class="text-green-100 text-sm">© <span id="year"></span> ProFarm. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Button -->
+  <a 
+    href="https://wa.me/917709648063?text=Hello%20I%20am%20interested%20in%20ProFarm%20products.%20Please%20share%20details."
+    target="_blank"
+    rel="noopener noreferrer"
+    class="fixed bottom-6 right-6 w-14 h-14 bg-green-600 hover:bg-green-700 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 z-30 group"
+    title="Contact us on WhatsApp"
+  >
+    <svg class="w-7 h-7 text-white group-hover:scale-110 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.149-.792.372-.272.227-.1.879.061 1.386.16.507.833 1.23 1.02 1.43.188.199 2.613 4.005 6.34 5.61.884.38 1.575.544 2.113.69.886.276 1.695.138 2.33-.084.634-.22 1.944-.792 2.22-1.56.276-.764.276-1.416.194-1.554-.082-.138-.299-.224-.595-.372z"/>
+    </svg>
+  </a>
+
+  <!-- AOS - Animate On Scroll Library -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

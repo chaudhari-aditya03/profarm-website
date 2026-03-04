@@ -1,0 +1,15 @@
+{
+  "name": "profarm-website",
+  "version": "1.0.0",
+  "description": "ProFarm organic farm products website",
+  "scripts": {
+    "build:css": "tailwindcss -i ./src/input.css -o ./assets/css/tailwind.css --minify",
+    "watch:css": "tailwindcss -i ./src/input.css -o ./assets/css/tailwind.css --watch"
+  },
+  "keywords": ["farm", "organic", "products"],
+  "author": "ProFarm",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.4.1"
+  }
+}

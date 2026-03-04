@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <rect width="800" height="600" fill="#e8f5e9"/>
+  <rect x="130" y="180" width="540" height="260" rx="16" fill="#81c784"/>
+  <text x="160" y="325" fill="#1b5e20" font-family="Arial, sans-serif" font-size="52" font-weight="700">Fresh Vegetables</text>
+</svg>
