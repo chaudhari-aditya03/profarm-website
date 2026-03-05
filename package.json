@@ -4,11 +4,17 @@
   "description": "ProFarm organic farm products website",
   "scripts": {
     "build:css": "tailwindcss -i ./src/input.css -o ./assets/css/tailwind.css --minify",
-    "watch:css": "tailwindcss -i ./src/input.css -o ./assets/css/tailwind.css --watch"
+    "watch:css": "tailwindcss -i ./src/input.css -o ./assets/css/tailwind.css --watch",
+    "start": "node server.js"
   },
   "keywords": ["farm", "organic", "products"],
   "author": "ProFarm",
   "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "twilio": "^4.6.0"
+  },
   "devDependencies": {
     "tailwindcss": "^3.4.1"
   }

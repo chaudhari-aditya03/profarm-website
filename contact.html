@@ -406,71 +406,21 @@
     </svg>
   </a>
 
-  <!-- EmailJS SDK -->
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/index.min.js"></script>
-
-  <!-- EmailJS Configuration & Form Handler -->
-  <script type="text/javascript">
-    (function() {
-      // Initialize EmailJS with your public key
-      // Replace 'YOUR_PUBLIC_KEY' with your actual EmailJS public key
-      emailjs.init('YOUR_PUBLIC_KEY');
-    })();
-
-    document.addEventListener('DOMContentLoaded', function() {
-      const contactForm = document.getElementById('contactForm');
-      
-      if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-          e.preventDefault();
-
-          // Get form data
-          const name = document.querySelector('input[name="name"]').value;
-          const phone = document.querySelector('input[name="phone"]').value;
-          const email = document.querySelector('input[name="email"]').value;
-          const product = document.querySelector('select[name="product"]').value;
-          const message = document.querySelector('textarea[name="message"]').value;
-
-          // Disable submit button while sending
-          const submitButton = contactForm.querySelector('button[type="submit"]');
-          const originalButtonText = submitButton.textContent;
-          submitButton.disabled = true;
-          submitButton.textContent = 'Sending...';
-
-          // Send email using EmailJS
-          emailjs.send(
-            'YOUR_SERVICE_ID',      // Replace with your EmailJS Service ID
-            'YOUR_TEMPLATE_ID',     // Replace with your EmailJS Template ID
-            {
-              to_email: 'info@profarm.com',  // Replace with your email
-              from_name: name,
-              from_email: email,
-              phone_number: phone,
-              product_interested: product,
-              message: message
-            }
-          ).then(function(response) {
-            // Success
-            submitButton.disabled = false;
-            submitButton.textContent = originalButtonText;
-            
-            alert('Success! Your message has been sent. We will get back to you soon.');
-            contactForm.reset();
-            
-            // Clear pre-filled product if it came from URL
-            document.getElementById('productSelect').value = '';
-          }, function(error) {
-            // Error
-            submitButton.disabled = false;
-            submitButton.textContent = originalButtonText;
-            
-            alert('Error sending message. Please try again or contact us via WhatsApp.');
-            console.error('EmailJS Error:', error);
-          });
-        });
-      }
-    });
-  </script>
+  <!doctype html>
+  <html lang="en">
+    <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width,initial-scale=1" />
+      <title>Redirecting…</title>
+      <meta http-equiv="refresh" content="0;url=/index.html#contact" />
+      <meta name="robots" content="noindex,nofollow" />
+      <script>window.location.replace('/index.html#contact');</script>
+      <style>body{font-family:system-ui,Inter,Arial,sans-serif;padding:2rem;text-align:center}</style>
+    </head>
+    <body>
+      Redirecting to <a href="/index.html#contact">Contact</a>…
+    </body>
+  </html>
 
   <!-- AOS - Animate On Scroll Library -->
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
