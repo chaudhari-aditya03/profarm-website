@@ -1,15 +1,183 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Redirecting…</title>
-    <meta http-equiv="refresh" content="0;url=/index.html#products" />
-    <meta name="robots" content="noindex,nofollow" />
-    <script>window.location.replace('/index.html#products');</script>
-    <style>body{font-family:system-ui,Inter,Arial,sans-serif;padding:2rem;text-align:center}</style>
-  </head>
-  <body>
-    Redirecting to <a href="/index.html#products">Products</a>…
-  </body>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Products — ProFarm</title>
+  <meta name="description" content="All products — ProFarm natural powders. Onion, Banana, Turmeric, Garlic, Tomato and more." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--brand-green:#166534;--brand-dark:#0f5132;--beige:#F6F0E6;--accent-light:#FEF6D2;--earth:#8b5e3c}
+    body{font-family:Inter,system-ui,Arial,sans-serif;background:var(--beige);margin:0}
+    .card{background:#fff;border-radius:16px;padding:1.25rem;box-shadow:0 10px 30px rgba(16,40,20,.06)}
+    .product-card{border-radius:16px;transition:transform .28s ease,box-shadow .28s ease}
+    .product-card:hover{transform:translateY(-8px);box-shadow:0 18px 40px rgba(16,40,20,0.12)}
+    .badge{display:inline-flex;gap:.5rem;align-items:center;padding:.25rem .6rem;border-radius:999px;font-size:.8rem}
+    a{color:inherit}
+  </style>
+</head>
+<body class="antialiased text-gray-800">
+  <header class="bg-white sticky top-0 z-40 border-b">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <a href="index.html" class="flex items-center gap-3">
+          <img src="assets/images/logo1.jpeg" alt="ProFarm" class="h-12 w-12 rounded-lg object-cover" />
+          <div>
+            <div class="text-lg font-semibold" style="color:var(--brand-dark)">ProFarm</div>
+            <div class="text-xs text-gray-500">Farm to Kitchen • 100% Natural</div>
+          </div>
+        </a>
+
+        <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-gray-700">
+          <a href="index.html" class="hover:text-[var(--brand-green)]">Home</a>
+          <a href="index.html#products" class="hover:text-[var(--brand-green)]">Products</a>
+          <a href="index.html#contact" class="px-3 py-2 bg-[var(--brand-green)] text-white rounded-lg">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="text-center mb-8">
+      <h1 class="text-3xl font-bold text-[var(--brand-dark)]">Our Products</h1>
+      <p class="text-gray-600 mt-2">Full lineup of ProFarm powders — ingredient lists, shelf-life, and order options.</p>
+    </div>
+
+    <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Product list: replicate same card style as index -->
+
+      <article class="product-card card">
+        <img src="assets/images/onion.png" alt="Onion Powder" class="w-full h-48 object-cover rounded-md mb-4" />
+        <h3 class="text-xl font-semibold text-[var(--brand-green)]">Onion Powder</h3>
+        <p class="text-gray-600 mt-2">Rich aroma, natural sweetness — ideal for seasoning and sauces.</p>
+        <div class="mt-3 flex flex-wrap gap-2">
+          <span class="badge" style="background:#FEF6D2;color:#D4A017">100% Natural</span>
+          <span class="badge" style="background:#fff;color:var(--brand-dark)">Chemical Free</span>
+        </div>
+        <div class="mt-4 flex items-center justify-between gap-3">
+          <div class="text-sm text-gray-500">Shelf life: 12 months</div>
+          <button class="btn-primary px-3 py-2 bg-[var(--brand-green)] text-white rounded-md">Order</button>
+        </div>
+      </article>
+
+      <article class="product-card card">
+        <img src="assets/images/banana.png" alt="Banana Powder" class="w-full h-48 object-cover rounded-md mb-4" />
+        <h3 class="text-xl font-semibold text-[var(--brand-green)]">Banana Powder</h3>
+        <p class="text-gray-600 mt-2">Perfect for smoothies, baby foods and baking.</p>
+        <div class="mt-3 flex flex-wrap gap-2">
+          <span class="badge" style="background:#FEF6D2;color:#D4A017">Natural</span>
+          <span class="badge" style="background:#fff;color:var(--brand-dark)">No Preservatives</span>
+        </div>
+        <div class="mt-4 flex items-center justify-between gap-3">
+          <div class="text-sm text-gray-500">Shelf life: 9 months</div>
+          <button class="btn-primary px-3 py-2 bg-[var(--brand-green)] text-white rounded-md">Order</button>
+        </div>
+      </article>
+
+      <article class="product-card card">
+        <img src="assets/images/turmeric.png" alt="Turmeric Powder" class="w-full h-48 object-cover rounded-md mb-4" />
+        <h3 class="text-xl font-semibold text-[var(--brand-green)]">Turmeric Powder</h3>
+        <p class="text-gray-600 mt-2">High curcumin, clean drying — perfect for culinary and nutraceutical use.</p>
+        <div class="mt-3 flex flex-wrap gap-2">
+          <span class="badge" style="background:#FEF6D2;color:#D4A017">Natural</span>
+          <span class="badge" style="background:#fff;color:var(--brand-dark)">No Additives</span>
+        </div>
+        <div class="mt-4 flex items-center justify-between gap-3">
+          <div class="text-sm text-gray-500">Shelf life: 12 months</div>
+          <button class="btn-primary px-3 py-2 bg-[var(--brand-green)] text-white rounded-md">Order</button>
+        </div>
+      </article>
+
+      <article class="product-card card">
+        <img src="assets/images/garlic.png" alt="Garlic Powder" class="w-full h-48 object-cover rounded-md mb-4" />
+        <h3 class="text-xl font-semibold text-[var(--brand-green)]">Garlic Powder</h3>
+        <p class="text-gray-600 mt-2">Aromatic, pungent — great for seasonings and blends.</p>
+        <div class="mt-3 flex flex-wrap gap-2">
+          <span class="badge" style="background:#FEF6D2;color:#D4A017">100% Garlic</span>
+          <span class="badge" style="background:#fff;color:var(--brand-dark)">No Preservatives</span>
+        </div>
+        <div class="mt-4 flex items-center justify-between gap-3">
+          <div class="text-sm text-gray-500">Shelf life: 12 months</div>
+          <button class="btn-primary px-3 py-2 bg-[var(--brand-green)] text-white rounded-md">Order</button>
+        </div>
+      </article>
+
+      <article class="product-card card">
+        <img src="assets/images/tomato.png" alt="Tomato Powder" class="w-full h-48 object-cover rounded-md mb-4" />
+        <h3 class="text-xl font-semibold text-[var(--brand-green)]">Tomato Powder</h3>
+        <p class="text-gray-600 mt-2">Concentrated tomato flavour for soups, sauces and sauces.</p>
+        <div class="mt-3 flex flex-wrap gap-2">
+          <span class="badge" style="background:#FEF6D2;color:#D4A017">Natural</span>
+        </div>
+        <div class="mt-4 flex items-center justify-between gap-3">
+          <div class="text-sm text-gray-500">Shelf life: 9 months</div>
+          <button class="btn-primary px-3 py-2 bg-[var(--brand-green)] text-white rounded-md">Order</button>
+        </div>
+      </article>
+
+      <article class="product-card card">
+        <img src="assets/images/moringa.png" alt="Moringa Powder" class="w-full h-48 object-cover rounded-md mb-4" />
+        <h3 class="text-xl font-semibold text-[var(--brand-green)]">Moringa Powder</h3>
+        <p class="text-gray-600 mt-2">Nutrient dense moringa leaf powder for supplements and foods.</p>
+        <div class="mt-3 flex flex-wrap gap-2">
+          <span class="badge" style="background:#FEF6D2;color:#D4A017">Natural</span>
+        </div>
+        <div class="mt-4 flex items-center justify-between gap-3">
+          <div class="text-sm text-gray-500">Shelf life: 9 months</div>
+          <button class="btn-primary px-3 py-2 bg-[var(--brand-green)] text-white rounded-md">Order</button>
+        </div>
+      </article>
+
+      <article class="product-card card">
+        <img src="assets/images/curry_leaves.png" alt="Curry Leaves Powder" class="w-full h-48 object-cover rounded-md mb-4" />
+        <h3 class="text-xl font-semibold text-[var(--brand-green)]">Curry Leaves Powder</h3>
+        <p class="text-gray-600 mt-2">Aromatic curry leaf powder for seasonings and instant mixes.</p>
+        <div class="mt-3 flex flex-wrap gap-2">
+          <span class="badge" style="background:#FEF6D2;color:#D4A017">Natural</span>
+        </div>
+        <div class="mt-4 flex items-center justify-between gap-3">
+          <div class="text-sm text-gray-500">Shelf life: 9 months</div>
+          <button class="btn-primary px-3 py-2 bg-[var(--brand-green)] text-white rounded-md">Order</button>
+        </div>
+      </article>
+
+      <article class="product-card card">
+        <img src="assets/images/beetroot.png" alt="Beetroot Powder" class="w-full h-48 object-cover rounded-md mb-4" />
+        <h3 class="text-xl font-semibold text-[var(--brand-green)]">Beetroot Powder</h3>
+        <p class="text-gray-600 mt-2">Vibrant color and earthy flavor — for beverages and bakery.</p>
+        <div class="mt-3 flex flex-wrap gap-2">
+          <span class="badge" style="background:#FEF6D2;color:#D4A017">Natural</span>
+        </div>
+        <div class="mt-4 flex items-center justify-between gap-3">
+          <div class="text-sm text-gray-500">Shelf life: 9 months</div>
+          <button class="btn-primary px-3 py-2 bg-[var(--brand-green)] text-white rounded-md">Order</button>
+        </div>
+      </article>
+
+      <article class="product-card card">
+        <img src="assets/images/custom.png" alt="Custom Farm Blends" class="w-full h-48 object-cover rounded-md mb-4" />
+        <h3 class="text-xl font-semibold text-[var(--brand-green)]">Custom Farm Blends</h3>
+        <p class="text-gray-600 mt-2">We can create private-label blends and custom drying/packing specifications.</p>
+        <div class="mt-3 flex flex-wrap gap-2">
+          <span class="badge" style="background:#FEF6D2;color:#D4A017">Custom</span>
+        </div>
+        <div class="mt-4 flex items-center justify-between gap-3">
+          <div class="text-sm text-gray-500">MOQ: 50 kg</div>
+          <button class="btn-primary px-3 py-2 bg-[var(--brand-green)] text-white rounded-md">Contact</button>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <footer class="bg-[var(--brand-green)] text-white py-8 mt-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+      <div class="text-sm">© <span id="year"></span> ProFarm</div>
+      <div class="text-sm">Contact: <a href="tel:+917709648063" class="underline">+91 7709648063</a></div>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
 </html>

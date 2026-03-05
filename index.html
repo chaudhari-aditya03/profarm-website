@@ -38,6 +38,16 @@
     body { -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
     h1,h2,h3{font-family:'Playfair Display',serif}
     .card-shadow{box-shadow:var(--card-shadow); border-radius:16px}
+    /* Product card and hero visuals */
+    .product-card{border-radius:16px;transition:transform .28s ease,box-shadow .28s ease}
+    .product-card:hover{transform:translateY(-8px);box-shadow:0 18px 40px rgba(16,40,20,0.12)}
+    .badge{display:inline-flex;gap:.5rem;align-items:center;padding:.25rem .6rem;border-radius:999px;font-size:.8rem}
+    .badge--pill{background:var(--accent-light);color:var(--accent-dark)}
+    .trust-badges{display:flex;gap:0.75rem;flex-wrap:wrap}
+    .hero-visuals{display:flex;gap:1rem;align-items:center;justify-content:center}
+    .hero-visuals .vcard{width:96px;height:96px;border-radius:12px;overflow:hidden;box-shadow:0 8px 30px rgba(16,40,20,0.06)}
+    .cta-primary{background:linear-gradient(90deg,var(--brand-green),var(--brand-dark));box-shadow:0 10px 30px rgba(16,81,50,.12)}
+    .section--cream{background:var(--beige)}
     /* UI helpers */
     .section{padding-top:3.5rem;padding-bottom:3.5rem}
     .section--alt{background:linear-gradient(180deg, transparent 0%, rgba(246,240,230,0.6) 100%)}
@@ -85,6 +95,19 @@
     }
     /* Force mobile menu overlay to be solid white and non-transparent */
     #mobileMenu{background-color:#ffffff !important; backdrop-filter:none !important;}
+    /* Floating WhatsApp FAB */
+    .whatsapp-fab{position:fixed;right:18px;bottom:20px;z-index:60;background:#25D366;color:#fff;width:56px;height:56px;border-radius:9999px;display:inline-flex;align-items:center;justify-content:center;box-shadow:0 8px 30px rgba(37,211,102,0.18);transition:transform .14s ease,box-shadow .14s ease}
+    .whatsapp-fab:hover{transform:translateY(-4px);box-shadow:0 14px 36px rgba(37,211,102,0.22)}
+
+    /* Gallery cards */
+    .gallery-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+    .gallery-card{position:relative;overflow:hidden;border-radius:12px;height:180px;background:#fff}
+    .gallery-card img{width:100%;height:100%;object-fit:cover;display:block}
+    .gallery-caption{position:absolute;left:0;right:0;bottom:0;padding:.5rem .75rem;background:linear-gradient(180deg,rgba(0,0,0,0) 0%, rgba(0,0,0,0.45) 100%);color:#fff;font-size:.95rem}
+    @media(min-width:768px){
+      .gallery-grid{grid-template-columns:repeat(4,1fr)}
+      .gallery-card{height:220px}
+    }
   </style>
 </head>
 <body class="antialiased text-gray-800 bg-[var(--beige)]">
@@ -153,25 +176,116 @@
         <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
           <div class="lg:w-1/2 text-white z-10 text-center md:text-left">
             <p class="inline-block px-3 py-1 rounded-full bg-white/10 text-xs tracking-wide uppercase mb-4">Farm-to-Kitchen • Hand-picked • Hygienic</p>
-            <h1 class="mt-6 text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight drop-shadow-lg text-white">Authentic Farm Flavour, Carefully Preserved</h1>
-            <p class="mt-4 text-lg max-w-2xl" style="color:rgba(250, 205, 21, 0.95);">From our fields to your kitchen — premium onion and banana powders made with gentle drying and hygienic processing to retain natural taste and nutrients.</p>
+            <h1 class="mt-6 text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight drop-shadow-lg text-white">From Field to Jar — Real Farm Flavour</h1>
+            <p class="mt-4 text-lg max-w-2xl" style="color:var(--accent-light);">See how we harvest, process and package — small-batch care that keeps the real flavour.</p>
 
-            <div class="mt-8 flex flex-wrap gap-3">
-              <a href="#products" class="btn-primary inline-flex items-center gap-2">Explore Products</a>
-              <a href="#story" class="btn-ghost inline-flex items-center gap-2">Learn Our Story</a>
+            <div class="mt-6 hero-visuals justify-center md:justify-start">
+              <div class="vcard text-center">
+                <img src="assets/images/farm.png" alt="Farm fields" class="w-full h-full object-cover" />
+              </div>
+              <div class="vcard text-center">
+                <img src="assets/images/har.png" alt="Harvest" class="w-full h-full object-cover" />
+              </div>
+              <div class="vcard text-center">
+                <img src="assets/images/pakaging.jpg" alt="Packaging" class="w-full h-full object-cover" />
+              </div>
+            </div>
+
+            <div class="mt-8 flex flex-wrap gap-3 items-center">
+              <a href="#products" class="cta-primary btn-primary inline-flex items-center gap-2">Order Now</a>
+              <a href="https://wa.me/917709648063" target="_blank" rel="noopener noreferrer" class="btn-ghost inline-flex items-center gap-2">Order via WhatsApp</a>
+              <a href="#contact" class="btn-ghost inline-flex items-center gap-2">Contact</a>
             </div>
           </div>
 
           <!-- Product overlay (right) -->
           <div class="hidden lg:block lg:w-1/2 relative h-full hero-image-mobile-hide">
-            <div class="absolute right-0 top-20 w-[480px] flex items-end justify-end gap-6">
-              <img src="assets/images/onion.png" alt="Onion Powder" class="w-64 rounded-2xl shadow-2xl transform translate-y-0 animate-float transition-transform duration-700 hover:scale-105" loading="lazy" />
-              <img src="assets/images/banana.png" alt="Banana Powder" class="w-40 rounded-2xl shadow-xl -mr-6 transform translate-y-6 animate-float transition-transform duration-700 hover:scale-105" loading="lazy" />
+            <div class="absolute right-0 top-12 w-[520px] flex items-end justify-end gap-6">
+              <img src="assets/images/onion.png" alt="Onion Powder" class="w-72 rounded-2xl transform translate-y-0 animate-float transition-transform duration-700 hover:scale-105 shadow-xl" loading="lazy" />
+              <img src="assets/images/banana.png" alt="Banana Powder" class="w-44 rounded-2xl -mr-8 transform translate-y-6 animate-float transition-transform duration-700 hover:scale-105 shadow-lg" loading="lazy" />
+              <div class="hidden xl:block w-44 rounded-2xl overflow-hidden bg-white/5 shadow-lg">
+                <img src="assets/images/pakaging.jpg" alt="Packaging" class="w-full h-full object-cover" loading="lazy" />
+              </div>
             </div>
 
             <!-- soft vignette circle to highlight products -->
-            <div class="absolute -right-24 top-36 w-72 h-72 rounded-full bg-white/6 blur-3xl pointer-events-none"></div>
+            <div class="absolute -right-28 top-28 w-80 h-80 rounded-full bg-white/6 blur-3xl pointer-events-none"></div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Product Usage / Industry Section -->
+    <section id="usage" class="section max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="text-center mb-8">
+        <h2 class="text-3xl font-bold text-[var(--brand-green)]">Where Our Powders Work Best</h2>
+        <p class="text-gray-600 mt-2">Trusted by businesses and chefs — versatile ingredients for many applications.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 items-start">
+        <div class="bg-white rounded-2xl p-6 card-shadow">
+          <h3 class="font-semibold text-[var(--brand-green)] mb-3">Ideal For</h3>
+          <ul class="text-gray-700 list-disc list-inside space-y-2">
+            <li>Food Processing Industries</li>
+            <li>Restaurants & Hotels</li>
+            <li>Spice Manufacturers</li>
+            <li>Ready-to-Eat Food Brands</li>
+            <li>Export Markets</li>
+          </ul>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 card-shadow">
+          <h3 class="font-semibold text-[var(--brand-green)] mb-3">Common Uses</h3>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="p-4 rounded-lg bg-[var(--beige)] text-center">
+              <div class="text-2xl">🍳</div>
+              <div class="mt-2 font-medium">Cooking</div>
+            </div>
+            <div class="p-4 rounded-lg bg-[var(--beige)] text-center">
+              <div class="text-2xl">🍼</div>
+              <div class="mt-2 font-medium">Baby Food</div>
+            </div>
+            <div class="p-4 rounded-lg bg-[var(--beige)] text-center">
+              <div class="text-2xl">🥤</div>
+              <div class="mt-2 font-medium">Smoothies</div>
+            </div>
+            <div class="p-4 rounded-lg bg-[var(--beige)] text-center">
+              <div class="text-2xl">🧁</div>
+              <div class="mt-2 font-medium">Baking</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Visual Storytelling Gallery -->
+    <section class="section section--cream">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-8">
+          <h2 class="text-2xl font-bold text-[var(--brand-dark)]">From Our Fields</h2>
+          <p class="text-gray-600 mt-2">Real images from our farm, harvest and processing — transparency you can trust.</p>
+        </div>
+
+        <div class="gallery-grid">
+          <figure class="gallery-card">
+            <img src="assets/images/farm.png" alt="Farm fields" loading="lazy" />
+            <figcaption class="gallery-caption">Farm fields</figcaption>
+          </figure>
+
+          <figure class="gallery-card">
+            <img src="assets/images/har.png" alt="Harvest" loading="lazy" />
+            <figcaption class="gallery-caption">Harvest</figcaption>
+          </figure>
+
+          <figure class="gallery-card">
+            <img src="assets/images/hygenic1.png" alt="Processing" loading="lazy" />
+            <figcaption class="gallery-caption">Processing</figcaption>
+          </figure>
+
+          <figure class="gallery-card">
+            <img src="assets/images/pakaging.jpg" alt="Packaging" loading="lazy" />
+            <figcaption class="gallery-caption">Packaging</figcaption>
+          </figure>
         </div>
       </div>
     </section>
@@ -226,8 +340,15 @@
       <div class="grid lg:grid-cols-2 gap-12 items-center">
         <div>
           <h2 class="text-3xl font-bold text-[var(--brand-green)] mb-4">Our Story</h2>
-          <p class="text-gray-700 mb-4">ProFarm started as a small family farm with a big idea: preserve the wholesome goodness of farm produce and make it accessible to modern kitchens. Founded by a farmer entrepreneur, our journey focuses on sustainable cultivation, careful handling and hygienic processing to deliver natural powders that keep flavor and nutrition intact.</p>
+          <p class="text-gray-700 mb-4">ProFarm began as a family farm with a simple purpose: preserve the freshness of farm produce into convenient, nutritious powders. Our founder grew up in the fields and built ProFarm to connect authentic farm quality with modern kitchens.</p>
           <p class="text-gray-600">We partner with local growers, use low-impact drying methods, and package with care — so every jar tells the story of the field it came from.</p>
+          <div class="mt-6 card-shadow p-4 flex items-center gap-4 bg-white rounded-xl">
+            <img src="assets/images/about1.png" alt="Founder" class="w-20 h-20 rounded-lg object-cover shadow-sm" />
+            <div>
+              <div class="font-semibold text-[var(--brand-dark)]">Rajesh — Founder</div>
+              <div class="text-sm text-gray-600">"We started with one field and one idea: keep food real. Every jar carries that care."</div>
+            </div>
+          </div>
         </div>
         <div class="rounded-2xl overflow-hidden card-shadow">
           <img src="assets/images/about1.png" alt="Farmer" class="w-full h-80 object-cover" loading="lazy" />
@@ -240,15 +361,15 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-10">
           <h2 class="text-3xl font-bold text-[var(--brand-green)]">Featured Products</h2>
-          <p class="text-gray-600 mt-2">Premium quality powders designed for chefs, manufacturers and home cooks.</p>
+          <p class="text-gray-600 mt-2">Premium powders — small-batch, hygienic processing, ideal for chefs and producers.</p>
         </div>
 
-        <div class="grid sm:grid-cols-1 md:grid-cols-2 gap-8">
-          <!-- Onion Powder Card -->
-          <article class="bg-white rounded-3xl p-6 md:p-8 card-shadow transform transition hover:-translate-y-2 hover:shadow-2xl">
+        <div class="grid sm:grid-cols-1 md:grid-cols-1 gap-8">
+          <!-- Featured: Onion Powder (single) -->
+          <article class="bg-white rounded-3xl p-6 md:p-8 card-shadow product-card mx-auto max-w-3xl">
             <div class="flex flex-col md:flex-row items-start gap-6">
               <div class="w-full md:w-44 flex-shrink-0">
-                <img src="assets/images/onion.png" alt="Onion Powder" class="w-full h-44 md:h-40 object-cover rounded-xl shadow-lg" loading="lazy" />
+                <img src="assets/images/about1.png" alt="Onion Powder" class="w-full h-44 md:h-40 object-cover rounded-xl shadow-lg" loading="lazy" />
               </div>
 
               <div class="flex-1">
@@ -256,38 +377,16 @@
                 <p class="text-gray-600 mt-3">Premium dehydrated onion powder — rich aroma and natural sweetness, ideal for seasoning, sauces and commercial use.</p>
 
                 <div class="mt-4 flex flex-wrap items-center gap-2">
-                  <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-[var(--brand-green)]/10 text-[var(--brand-green)]">100% Natural</span>
-                  <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm" style="background:var(--accent-light);color:var(--accent-dark);">Chemical Free</span>
+                  <span class="badge badge--pill">100% Natural</span>
+                  <span class="badge" style="background:#fff;color:var(--brand-dark)">Chemical Free</span>
+                  <span class="badge" style="background:rgba(139,94,60,0.08);color:var(--earth)">Shelf life: 12 months</span>
                 </div>
 
-                <div class="mt-6 flex flex-col sm:flex-row gap-3">
-                  <a href="products.html" class="btn-ghost w-full sm:w-auto text-center">View Details</a>
-                  <button type="button" class="btn-primary w-full sm:w-auto text-center orderBtn" data-product="Onion Powder">Order Now</button>
+                <div class="mt-6 flex flex-wrap gap-3">
+                  <button type="button" class="btn-primary orderBtn" data-product="Onion Powder">Order Now</button>
+                  <a href="products.html" data-skip-spa class="btn-ghost" style="align-self:center">Explore More Products</a>
                 </div>
-              </div>
-            </div>
-          </article>
-
-          <!-- Banana Powder Card -->
-          <article class="bg-white rounded-3xl p-6 md:p-8 card-shadow transform transition hover:-translate-y-2 hover:shadow-2xl">
-            <div class="flex flex-col md:flex-row items-start gap-6">
-              <div class="w-full md:w-44 flex-shrink-0">
-                <img src="assets/images/banana.png" alt="Banana Powder" class="w-full h-44 md:h-40 object-cover rounded-xl shadow-lg" loading="lazy" />
-              </div>
-
-              <div class="flex-1">
-                <h3 class="text-2xl font-semibold text-[var(--brand-green)]">Banana Powder</h3>
-                <p class="text-gray-600 mt-3">Nutritious banana powder, perfect for smoothies, baby foods and baking — naturally ripened and gently processed.</p>
-
-                <div class="mt-4 flex flex-wrap items-center gap-2">
-                  <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-[var(--brand-green)]/10 text-[var(--brand-green)]">Natural</span>
-                  <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm" style="background:var(--accent-light);color:var(--accent-dark);">No Preservatives</span>
-                </div>
-
-                <div class="mt-6 flex flex-col sm:flex-row gap-3">
-                  <a href="products.html" class="btn-ghost w-full sm:w-auto text-center">View Details</a>
-                  <button type="button" class="btn-primary w-full sm:w-auto text-center orderBtn" data-product="Banana Powder">Order Now</button>
-                </div>
+                <div class="mt-3 text-sm text-gray-500">Ingredients: 100% onion (dehydrated)</div>
               </div>
             </div>
           </article>
@@ -377,18 +476,58 @@
       </div>
     </section>
 
+    <!-- Trust signals -->
+    <section class="section max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div class="bg-white rounded-2xl p-6 card-shadow">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+          <div class="flex items-center gap-4">
+            <div class="w-16 h-16 rounded-lg bg-[var(--brand-green)]/8 flex items-center justify-center">
+              <svg class="w-8 h-8 text-[var(--brand-green)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M5 13l4 4L19 7"/></svg>
+            </div>
+            <div>
+              <h4 class="font-semibold">Quality Assured</h4>
+              <p class="text-sm text-gray-600">FSSAI registered, lab-tested batches, clear ingredient lists and shelf-life on every pack.</p>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-6">
+            <div class="text-sm">
+              <div class="font-semibold">Certificates</div>
+              <div class="text-gray-600">FSSAI • Organic (where applicable) • HACCP-friendly workflows</div>
+            </div>
+            <div class="text-sm">
+              <div class="font-semibold">Specifications</div>
+              <div class="text-gray-600">Shelf life, ingredients and processing details available for each SKU.</div>
+            </div>
+            <a href="#products" class="btn-ghost">See Products</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Gallery Preview -->
     <section class="section max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-      <div class="text-center mb-8">
-        <h2 class="text-3xl font-bold text-[var(--brand-green)]">Gallery</h2>
-        <p class="text-gray-600 mt-2">A peek into our fields and production.</p>
-      </div>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <img src="assets/images/har.png" alt="harvest" class="w-full h-44 object-cover rounded-lg" loading="lazy" />
-        <img src="assets/images/hygenic1.png" alt="processing" class="w-full h-44 object-cover rounded-lg" loading="lazy" />
-        <img src="assets/images/pakaging.jpg" alt="packaging" class="w-full h-44 object-cover rounded-lg" loading="lazy" />
-        <img src="assets/images/farm.png" alt="farm" class="w-full h-44 object-cover rounded-lg" loading="lazy" />
-      </div>
+        <div class="text-center mb-10">
+          <h2 class="text-3xl font-bold text-[var(--brand-green)]">Gallery</h2>
+          <p class="text-gray-600 mt-2">Premium powders — small-batch, hygienic processing, ideal for chefs and producers.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+          <figure class="gallery-card">
+            <img src="assets/images/hygenic1.png" alt="Processing" loading="lazy" />
+            <figcaption class="gallery-caption">Processing</figcaption>
+          </figure>
+
+          <figure class="gallery-card">
+            <img src="assets/images/pakaging.jpg" alt="Packaging" loading="lazy" />
+            <figcaption class="gallery-caption">Packaging</figcaption>
+          </figure>
+
+          <figure class="gallery-card">
+            <img src="assets/images/farm.png" alt="Farm" loading="lazy" />
+            <figcaption class="gallery-caption">Farm</figcaption>
+          </figure>
+        </div>
     </section>
 
     <!-- Testimonials -->
@@ -544,6 +683,13 @@
       </div>
     </div>
   </footer>
+  <!-- Floating WhatsApp Order Button (opens WhatsApp with prefilled message) -->
+  <a id="whatsappFab" class="whatsapp-fab" href="https://wa.me/917709648063" target="_blank" rel="noopener noreferrer" aria-label="Order via WhatsApp" title="Order via WhatsApp">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M20.52 3.48A11.9 11.9 0 0012 0C5.373 0 .02 5.354.02 12c0 2.115.554 4.183 1.606 6.012L0 24l6.3-1.628A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12 0-3.173-1.233-6.16-3.48-8.52z" fill="#25D366"/>
+      <path d="M17.472 14.382c-.297-.149-1.76-.867-2.03-.966-.27-.099-.467-.148-.664.149-.198.297-.763.966-.935 1.166-.172.198-.347.223-.644.075-.297-.149-1.255-.462-2.39-1.476-.885-.788-1.48-1.761-1.653-2.059-.172-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.099-.198.05-.371-.025-.52-.075-.148-.664-1.6-.91-2.19-.24-.576-.486-.497-.664-.506l-.566-.01c-.198 0-.52.075-.792.372s-1.04 1.015-1.04 2.479 1.064 2.876 1.213 3.074c.149.198 2.095 3.2 5.077 4.487 0 0 .436.183.783.275.33.091.63.047.868-.029.265-.083 1.76-.708 2.006-1.395.247-.687.247-1.276.173-1.395-.074-.118-.27-.198-.567-.347z" fill="#fff"/>
+    </svg>
+  </a>
   <!-- EmailJS SDK -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/index.min.js"></script>
 
@@ -662,6 +808,8 @@
       document.addEventListener('click', function(e){
         const a = e.target.closest('a');
         if(!a) return;
+        // allow explicit bypass (data-skip-spa) or external/new-tab links
+        if(a.hasAttribute('data-skip-spa') || a.target === '_blank') return;
         const href = a.getAttribute('href');
         if(!href) return;
 
@@ -683,17 +831,18 @@
         }
       }, {passive:false});
 
-      // Order buttons: open contact and prefill product
-      document.querySelectorAll('.orderBtn').forEach(btn=>{
-        btn.addEventListener('click', function(){
-          const product = this.dataset.product || '';
-          scrollToHash('#contact');
-          setTimeout(()=>{
-            const sel = document.getElementById('productSelect');
-            if(sel){ sel.value = product; sel.focus(); }
-          }, 600);
-          try{ closeMobileMenu(); }catch(err){}
-        });
+      // Order buttons: delegated handler (works for current and future buttons)
+      document.addEventListener('click', function(e){
+        const btn = e.target.closest('.orderBtn');
+        if(!btn) return;
+        e.preventDefault();
+        const product = btn.dataset.product || '';
+        scrollToHash('#contact');
+        setTimeout(()=>{
+          const sel = document.getElementById('productSelect');
+          if(sel){ sel.value = product; sel.focus(); }
+        }, 600);
+        try{ closeMobileMenu(); }catch(err){}
       });
 
       // On load, if hash present, scroll to it without pushing history
@@ -704,6 +853,27 @@
       // Popstate handling: scroll to hash
       window.addEventListener('popstate', ()=>{
         if(location.hash) scrollToHash(location.hash, false);
+      });
+    })();
+  </script>
+
+  <script>
+    // WhatsApp FAB: populate prefilled message using selected product (if any)
+    (function(){
+      const fab = document.getElementById('whatsappFab');
+      if(!fab) return;
+      const ownerPhone = '917709648063';
+      fab.addEventListener('click', function(e){
+        // read selected product from contact form
+        const sel = document.getElementById('productSelect');
+        const product = sel && sel.value ? sel.value : '';
+        let msg = 'Hi ProFarm, I would like to enquire about';
+        if(product) msg += ` ${product}.`;
+        else msg += ' your products.';
+        msg += ' Please share pricing and MOQ. Thank you.';
+        const url = `https://wa.me/${ownerPhone}?text=${encodeURIComponent(msg)}`;
+        // update href then allow navigation
+        fab.setAttribute('href', url);
       });
     })();
   </script>
