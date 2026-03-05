@@ -567,7 +567,7 @@
         </div>
         <div class="bg-white rounded-2xl p-6 card-shadow">
           <h3 class="text-xl font-semibold text-[var(--brand-green)] mb-4">Send us a message</h3>
-          <form class="space-y-5" id="contactForm">
+          <form class="space-y-5" id="contactForm" action="https://formspree.io/f/mbdanqjq" method="POST">
             <div>
               <label for="name" class="text-sm font-medium text-gray-700">Full Name *</label>
               <input id="name" type="text" name="name" required aria-required="true" class="mt-1 w-full border rounded-lg px-3 py-2" placeholder="Your full name" />
@@ -608,6 +608,9 @@
             <div>
               <button type="submit" id="contactSubmit" class="w-full bg-[var(--brand-green)] text-white px-4 py-2 rounded-lg">Send Message</button>
             </div>
+            <!-- Formspree redirect and captcha control (hidden) -->
+            <input type="hidden" name="_next" value="/" />
+            <input type="hidden" name="_captcha" value="false" />
             <div id="contactStatus" class="mt-3 text-sm text-gray-600" role="status" aria-live="polite"></div>
           </form>
           <noscript class="mt-3 text-sm text-red-600">JavaScript is required to submit the contact form. Please use WhatsApp or email info@profarm.com.</noscript>
@@ -702,7 +705,7 @@
       const contactForm = document.getElementById('contactForm');
       if(!contactForm) return;
 
-      contactForm.addEventListener('submit', function(e){
+      contactForm.addEventListener('submit', async function(e){
         e.preventDefault();
 
         const name = contactForm.querySelector('input[name="name"]').value;
@@ -716,35 +719,40 @@
         submitButton.disabled = true;
         submitButton.textContent = 'Sending...';
 
-        // Send using EmailJS - replace service/template IDs
-        emailjs.send('YOUR_SERVICE_ID','YOUR_TEMPLATE_ID',{
-          to_email: 'info@profarm.com',
-          from_name: name,
-          from_email: email,
-          phone_number: phone,
-          product_interested: product,
-          message: message
-        }).then(function(){
+        // Submit to Formspree (server-side email forwarding) instead of EmailJS
+        try{
+          const endpoint = contactForm.getAttribute('action') || 'https://formspree.io/f/mbdanqjq';
+          const payload = { name, phone, email, product, message };
+          const resp = await fetch(endpoint, { method: 'POST', headers: { 'Content-Type':'application/json','Accept':'application/json' }, body: JSON.stringify(payload) });
+
           submitButton.disabled = false;
           submitButton.textContent = originalText;
+
           const status = document.getElementById('contactStatus');
-          if(status){ status.textContent = 'Success! Your message has been sent. We will contact you shortly.'; status.classList.remove('text-gray-600'); status.classList.add('text-green-700'); }
+          if(resp.ok){
+            if(status){ status.textContent = 'Success! Your message has been sent. We will contact you shortly.'; status.classList.remove('text-gray-600'); status.classList.add('text-green-700'); }
 
-          // Notify owner via serverless SMS (best-effort)
-          fetch('/api/send-sms',{
-            method:'POST', headers:{'Content-Type':'application/json'},
-            body: JSON.stringify({ name, phone, email, product, message })
-          }).catch(()=>{/* ignore */});
+            // Notify owner via serverless SMS (best-effort)
+            try{
+              const sms = await fetch('/api/send-sms',{ method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ name, phone, email, product, message }) });
+              if(sms.ok){ if(status) status.textContent += ' Owner notified via SMS.'; }
+              else { if(status) status.textContent += ' '; }
+            }catch(err){ console.error('Failed to call SMS endpoint', err); if(status) status.textContent += ' (Owner notification unavailable.)'; }
 
-          contactForm.reset();
-          const ps = document.getElementById('productSelect'); if(ps) ps.value = '';
-        }, function(err){
+            contactForm.reset();
+            const ps = document.getElementById('productSelect'); if(ps) ps.value = '';
+          } else {
+            const json = await resp.json().catch(()=>({}));
+            console.error('Formspree error', json);
+            if(status){ status.textContent = 'Failed to send. Please try WhatsApp or call us.'; status.classList.remove('text-gray-600'); status.classList.add('text-red-600'); }
+          }
+        }catch(err){
+          console.error('Submit error', err);
           submitButton.disabled = false;
           submitButton.textContent = originalText;
-          console.error('EmailJS error', err);
           const status = document.getElementById('contactStatus');
           if(status){ status.textContent = 'Failed to send. Please try WhatsApp or call us.'; status.classList.remove('text-gray-600'); status.classList.add('text-red-600'); }
-        });
+        }
       });
     });
   </script>
