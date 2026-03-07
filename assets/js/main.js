@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Create WhatsApp message
       const whatsappMessage = `Hello ProFarm,\n\nI am interested in your products. Here are my details:\n\nName: ${name}\nPhone: ${phone}\nEmail: ${email}\nProduct Interested: ${product}\n\nMessage: ${message}`;
-      const whatsappUrl = `https://wa.me/917709648063?text=${encodeURIComponent(whatsappMessage)}`;
+      const whatsappUrl = `https://wa.me/917875353481?text=${encodeURIComponent(whatsappMessage)}`;
 
       // Create email body format
       const emailBody = `Name: ${name}\nPhone: ${phone}\nEmail: ${email}\nProduct Interested: ${product}\n\nMessage:\n${message}`;
