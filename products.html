@@ -9,36 +9,73 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     :root{--brand-green:#166534;--brand-dark:#0f5132;--beige:#F6F0E6;--accent-light:#FEF6D2;--earth:#8b5e3c}
-    body{font-family:Inter,system-ui,Arial,sans-serif;background:var(--beige);margin:0}
+    body{font-family:Inter,system-ui,Arial,sans-serif;background:var(--beige);margin:0;overflow-x:hidden}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0}
     .card{background:#fff;border-radius:16px;padding:1.25rem;box-shadow:0 10px 30px rgba(16,40,20,.06)}
     .product-card{border-radius:16px;transition:transform .28s ease,box-shadow .28s ease}
     .product-card:hover{transform:translateY(-8px);box-shadow:0 18px 40px rgba(16,40,20,0.12)}
     .badge{display:inline-flex;gap:.5rem;align-items:center;padding:.25rem .6rem;border-radius:999px;font-size:.8rem}
-    a{color:inherit}
+    a{color:inherit;text-decoration:none}
   </style>
 </head>
 <body class="antialiased text-gray-800">
-  <header class="bg-white sticky top-0 z-40 border-b">
+  <a href="#main" class="sr-only">Skip to content</a>
+
+  <!-- Header -->
+  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-lg border-b border-gray-100 shadow-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-20">
         <a href="index.html" class="flex items-center gap-3">
           <img src="assets/images/logo1.jpeg" alt="ProFarm" class="h-12 w-12 rounded-lg object-cover" />
           <div>
             <div class="text-lg font-semibold" style="color:var(--brand-dark)">ProFarm</div>
-            <div class="text-xs text-gray-500">Farm to Kitchen • 100% Natural</div>
+            <div class="text-xs text-muted text-gray-500">Farm to Kitchen • 100% Natural</div>
           </div>
         </a>
 
-        <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-gray-700">
-          <a href="index.html" class="hover:text-[var(--brand-green)]">Home</a>
-          <a href="index.html#products" class="hover:text-[var(--brand-green)]">Products</a>
-          <a href="index.html#contact" class="px-3 py-2 bg-[var(--brand-green)] text-white rounded-lg">Contact</a>
+        <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-gray-700" aria-label="Primary navigation">
+          <a href="index.html#home" class="hover:text-[var(--brand-green)] transition-all duration-300 hover:scale-105">Home</a>
+          <a href="index.html#story" class="hover:text-[var(--brand-green)] transition-all duration-300 hover:scale-105">Our Story</a>
+          <a href="products.html" class="text-[var(--brand-green)] transition-all duration-300">Products</a>
+          <a href="index.html#process" class="hover:text-[var(--brand-green)] transition-all duration-300 hover:scale-105">Process</a>
+          <a href="index.html#contact" class="px-5 py-2.5 bg-gradient-to-r from-[var(--brand-green)] to-[var(--brand-dark)] text-white rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">Contact</a>
         </nav>
+
+        <button id="menuBtn" class="md:hidden p-2 rounded-md text-gray-700" aria-expanded="false" aria-controls="mobileMenu">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
       </div>
     </div>
   </header>
 
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+  <!-- Mobile menu (full-screen overlay) -->
+  <div id="mobileMenu" class="md:hidden hidden fixed inset-0 z-[9999] bg-white" role="dialog" aria-modal="true" aria-label="Mobile menu">
+    <div class="px-6 py-6 h-full flex flex-col">
+      <div class="flex items-center justify-between">
+        <a href="index.html" class="flex items-center gap-3">
+          <img src="assets/images/logo1.jpeg" alt="ProFarm" class="h-10 w-10 rounded-md object-cover" />
+          <div style="color:var(--brand-dark)" class="font-semibold">ProFarm</div>
+        </a>
+        <button id="mobileCloseBtn" class="p-2 rounded-md text-gray-700">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <nav class="mt-8 flex-1 flex flex-col gap-6 text-lg" aria-label="Mobile navigation">
+        <a href="index.html#home" class="py-2 px-2 rounded-md hover:bg-[rgba(22,101,52,0.06)]" data-close>Home</a>
+        <a href="index.html#story" class="py-2 px-2 rounded-md hover:bg-[rgba(22,101,52,0.06)]" data-close>Our Story</a>
+        <a href="products.html" class="py-2 px-2 rounded-md text-[var(--brand-green)] font-semibold" data-close>Products</a>
+        <a href="index.html#process" class="py-2 px-2 rounded-md hover:bg-[rgba(22,101,52,0.06)]" data-close>Process</a>
+      </nav>
+
+      <div class="mt-auto">
+        <a href="index.html#contact" class="block w-full text-center px-5 py-2.5 bg-gradient-to-r from-[var(--brand-green)] to-[var(--brand-dark)] text-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 mb-3">Contact</a>
+        <a href="https://wa.me/917875353481" target="_blank" rel="noopener noreferrer" class="block w-full text-center px-4 py-2 bg-white text-[var(--brand-green)] border-2 border-[var(--brand-green)] rounded-lg hover:bg-[var(--brand-green)] hover:text-white transition-all duration-300">WhatsApp</a>
+      </div>
+    </div>
+  </div>
+
+  <main id="main" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <div class="text-center mb-8">
       <h1 class="text-3xl font-bold text-[var(--brand-dark)]">Our Products</h1>
       <p class="text-gray-600 mt-2">Full lineup of ProFarm powders — ingredient lists, shelf-life, and order options.</p>
@@ -182,6 +219,45 @@
     </div>
   </footer>
 
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script>
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileCloseBtn = document.getElementById('mobileCloseBtn');
+    
+    // Ensure menu button is focusable and has accessible name
+    if(menuBtn && !menuBtn.getAttribute('aria-label')) menuBtn.setAttribute('aria-label','Open main menu');
+    
+    function openMobileMenu(){
+      mobileMenu.classList.remove('hidden');
+      document.body.classList.add('overflow-hidden');
+      menuBtn.setAttribute('aria-expanded','true');
+    }
+    
+    function closeMobileMenu(){
+      mobileMenu.classList.add('hidden');
+      document.body.classList.remove('overflow-hidden');
+      menuBtn.setAttribute('aria-expanded','false');
+    }
+    
+    menuBtn?.addEventListener('click', ()=> {
+      if(mobileMenu.classList.contains('hidden')) openMobileMenu(); else closeMobileMenu();
+    });
+    
+    mobileCloseBtn?.addEventListener('click', closeMobileMenu);
+    
+    // Close mobile menu when a nav link with data-close is clicked
+    mobileMenu?.querySelectorAll('[data-close]').forEach(a=>a.addEventListener('click', closeMobileMenu));
+
+    // Set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Add basic focus-visible outline for keyboard users
+    try{
+      const style = document.createElement('style');
+      style.textContent = '*:focus{outline:2px solid rgba(22,101,52,0.12);outline-offset:3px} *:focus:not(:focus-visible){outline: none}';
+      document.head.appendChild(style);
+    }catch(e){}
+  </script>
 </body>
 </html>
