@@ -47,15 +47,16 @@
     .badge:hover{transform:scale(1.05)}
     .badge--pill{background:linear-gradient(135deg,var(--accent-light) 0%, var(--accent) 100%);color:var(--accent-dark);box-shadow:0 2px 8px rgba(212,160,23,0.2)}
     .trust-badges{display:flex;gap:0.75rem;flex-wrap:wrap}
-    .hero-visuals{display:flex;gap:1rem;align-items:center;justify-content:center}
-    .hero-visuals .vcard{width:96px;height:96px;border-radius:16px;overflow:hidden;box-shadow:0 12px 40px rgba(16,40,20,0.1);transition:all .3s ease;border:3px solid rgba(255,255,255,0.5)}
+    .hero-copy{width:100%;max-width:36rem;margin-inline:auto}
+    .hero-visuals{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem;justify-items:center;max-width:320px;margin-inline:auto}
+    .hero-visuals .vcard{width:100%;max-width:148px;height:88px;border-radius:16px;overflow:hidden;box-shadow:0 12px 40px rgba(16,40,20,0.1);transition:all .3s ease;border:3px solid rgba(255,255,255,0.5)}
     .hero-visuals .vcard:hover{transform:scale(1.1) rotate(2deg);box-shadow:0 18px 50px rgba(16,40,20,0.2)}
     .cta-primary{background:linear-gradient(135deg,var(--brand-green) 0%,var(--brand-dark) 100%);box-shadow:0 10px 30px rgba(16,81,50,.15);position:relative;overflow:hidden}
     .cta-primary::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.2),transparent);transition:left 0.5s}
     .cta-primary:hover::before{left:100%}
     .section--cream{background:var(--beige)}
     /* UI helpers */
-    .section{padding-top:3.5rem;padding-bottom:3.5rem}
+    .section{padding-top:2.5rem;padding-bottom:2.5rem}
     .section--alt{background:linear-gradient(180deg, transparent 0%, rgba(246,240,230,0.6) 100%)}
     h1,h2,h3{color:var(--brand-dark)}
     .lead{color:var(--muted);font-size:1.05rem}
@@ -65,6 +66,8 @@
     .btn-primary:hover::after{opacity:1}
     .btn-ghost{background:#fff;color:var(--brand-green);padding:.7rem 1.3rem;border-radius:.75rem;border:2px solid var(--brand-green);transition:all .3s ease;min-height:48px;display:inline-flex;align-items:center;justify-content:center;font-weight:600;letter-spacing:0.3px}
     .btn-ghost:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(16,81,50,.12);background:var(--brand-green);color:#fff}
+    .mobile-actions{display:flex;flex-direction:column;align-items:stretch;gap:.75rem;width:100%}
+    .mobile-actions > *{width:100%;justify-content:center}
     /* keep hero image visible when missing */
     .hero-fallback{background:linear-gradient(180deg,var(--brand-green),var(--brand-dark))}
     /* subtle float animation for product overlays */
@@ -76,51 +79,43 @@
     .shimmer{background:linear-gradient(90deg,transparent,rgba(255,255,255,0.3),transparent);background-size:1000px 100%;animation:shimmer 3s infinite}
     /* Timeline styles */
     .timeline-line { height:4px; background:linear-gradient(90deg, var(--timeline-start), var(--brand-green)); border-radius:9999px }
-    .timeline-step { width:76px; height:76px }
-    .timeline-step .icon-wrap { width:56px; height:56px }
-    @media (min-width: 768px){
-      .timeline-step { width:100px; height:100px }
-      .timeline-step .icon-wrap { width:68px; height:68px }
-    }
-    /* Mobile adjustments */
-    @media (max-width: 640px) {
-      .section{padding-top:2rem;padding-bottom:2rem}
-      .btn-primary, .btn-ghost{padding:.9rem 1.1rem; min-height:48px}
-      .hero-image-mobile-hide{display:none}
-    }
-    /* Timeline styles */
-    .timeline-line { height:4px; background:linear-gradient(90deg, var(--timeline-start), var(--brand-green)); border-radius:9999px }
     /* Mobile-first: steps stack and span full width */
     .timeline-step { width:100%; display:flex; flex-direction:column; align-items:center }
     .timeline-step .icon-wrap { width:56px; height:56px; display:flex; align-items:center; justify-content:center }
-    @media (min-width: 768px){
-      .timeline-step { width:100px; height:100px }
-      .timeline-step .icon-wrap { width:68px; height:68px }
-    }
-    /* Mobile adjustments */
-    @media (max-width: 640px) {
-      .section{padding-top:2rem;padding-bottom:2rem}
-      .btn-primary, .btn-ghost{padding:.9rem 1.1rem; min-height:48px}
-      .hero-image-mobile-hide{display:none}
-      .timeline-step .icon-wrap { margin-bottom:0.5rem }
-      .timeline-step h4 { margin-top:0.5rem }
-    }
+    .timeline-step .icon-wrap { margin-bottom:0.5rem }
     /* Force mobile menu overlay to be solid white and non-transparent */
     #mobileMenu{background-color:#ffffff !important; backdrop-filter:none !important;}
     /* Floating WhatsApp FAB */
-    .whatsapp-fab{position:fixed;right:20px;bottom:24px;z-index:60;background:linear-gradient(135deg,#25D366 0%,#20BA5A 100%);color:#fff;width:60px;height:60px;border-radius:9999px;display:inline-flex;align-items:center;justify-content:center;box-shadow:0 10px 35px rgba(37,211,102,0.3);transition:all .3s cubic-bezier(0.4, 0, 0.2, 1)}
+    .whatsapp-fab{position:fixed;right:16px;bottom:20px;z-index:60;background:linear-gradient(135deg,#25D366 0%,#20BA5A 100%);color:#fff;width:54px;height:54px;border-radius:9999px;display:inline-flex;align-items:center;justify-content:center;box-shadow:0 10px 35px rgba(37,211,102,0.3);transition:all .3s cubic-bezier(0.4, 0, 0.2, 1)}
     .whatsapp-fab:hover{transform:translateY(-6px) scale(1.1);box-shadow:0 18px 45px rgba(37,211,102,0.4)}
     @keyframes pulse{0%,100%{box-shadow:0 10px 35px rgba(37,211,102,0.3)}50%{box-shadow:0 10px 45px rgba(37,211,102,0.5)}}
     .whatsapp-fab{animation:pulse 2s ease-in-out infinite}
 
     /* Gallery cards */
-    .gallery-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+    .gallery-grid{display:grid;grid-template-columns:1fr;gap:1rem}
     .gallery-card{position:relative;overflow:hidden;border-radius:12px;height:180px;background:#fff}
     .gallery-card img{width:100%;height:100%;object-fit:cover;display:block}
     .gallery-caption{position:absolute;left:0;right:0;bottom:0;padding:.5rem .75rem;background:linear-gradient(180deg,rgba(0,0,0,0) 0%, rgba(0,0,0,0.45) 100%);color:#fff;font-size:.95rem}
-    @media(min-width:768px){
+    .footer-meta{display:flex;flex-direction:column;align-items:flex-start;gap:.75rem}
+    @media (min-width: 640px) {
+      .section{padding-top:3.5rem;padding-bottom:3.5rem}
+      .btn-primary, .btn-ghost{padding:.9rem 1.25rem; min-height:48px}
+      .mobile-actions{flex-direction:row;flex-wrap:wrap;align-items:center}
+      .mobile-actions > *{width:auto}
+      .hero-visuals{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:center;max-width:none}
+      .hero-visuals .vcard{width:96px;height:96px;max-width:none}
+      .gallery-grid{grid-template-columns:repeat(2,1fr)}
+      .footer-meta{flex-direction:row;align-items:center;flex-wrap:wrap;gap:1rem}
+      .whatsapp-fab{right:20px;bottom:24px;width:60px;height:60px}
+    }
+    @media (min-width: 768px){
+      .timeline-step { width:100px; height:100px }
+      .timeline-step .icon-wrap { width:68px; height:68px }
       .gallery-grid{grid-template-columns:repeat(4,1fr)}
       .gallery-card{height:220px}
+    }
+    @media (max-width: 640px) {
+      .hero-image-mobile-hide{display:none}
     }
   </style>
 </head>
@@ -181,20 +176,20 @@
     </div>
   </div>
 
-  <main>
+  <main id="main">
     <!-- Hero -->
     <section id="home" class="relative">
-      <div class="relative bg-cover bg-center overflow-hidden h-[60vh] sm:h-[72vh] md:h-[84vh] min-h-[420px] sm:min-h-[480px]" style="background-image: url('assets/images/hero.png');">
+      <div class="relative bg-cover bg-center overflow-hidden min-h-[540px] sm:min-h-[600px] md:h-[84vh] md:min-h-[680px]" style="background-image: url('assets/images/hero.png');">
         <div class="absolute inset-0 bg-gradient-to-br from-[rgba(6,95,70,0.85)] via-[rgba(6,95,70,0.55)] to-[rgba(0,0,0,0.25)] backdrop-blur-[2px]"></div>
         <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
 
-        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
-          <div class="lg:w-1/2 text-white z-10 text-center md:text-left">
-            <p class="inline-block px-4 py-2 rounded-full bg-white/20 backdrop-blur-md text-xs tracking-wide uppercase mb-4 font-semibold border border-white/30">Farm-to-Kitchen • Hand-picked • Hygienic</p>
-            <h1 class="mt-6 text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight drop-shadow-2xl text-white" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.3)">The trust we build is best described by our buyers</h1>
-            <p class="mt-6 text-lg sm:text-xl max-w-2xl font-medium" style="color:var(--accent-light);text-shadow: 1px 1px 2px rgba(0,0,0,0.2)">A Glimpse of Our Dehydrated Products & Premium Packaging</p>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center py-14 sm:py-16 md:py-0">
+          <div class="hero-copy lg:w-1/2 text-white z-10 text-center lg:text-left">
+            <p class="inline-block px-4 py-2 rounded-full bg-white/20 backdrop-blur-md text-[11px] sm:text-xs tracking-[0.18em] uppercase mb-4 font-semibold border border-white/30 leading-relaxed">Farm-to-Kitchen • Hand-picked • Hygienic</p>
+            <h1 class="mt-4 text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.15] drop-shadow-2xl text-white" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.3)">The trust we build is best described by our buyers</h1>
+            <p class="mt-4 text-base sm:text-xl max-w-2xl font-medium mx-auto lg:mx-0" style="color:var(--accent-light);text-shadow: 1px 1px 2px rgba(0,0,0,0.2)">A glimpse of our dehydrated products and premium packaging.</p>
 
-            <div class="mt-6 hero-visuals justify-center md:justify-start">
+            <div class="mt-8 hero-visuals lg:justify-start">
               <div class="vcard text-center">
                 <img src="assets/images/prod (1).png" alt="Farm fields" class="w-full h-full object-cover" />
               </div>
@@ -209,7 +204,7 @@
               </div>
             </div>
 
-            <div class="mt-8 flex flex-wrap gap-3 items-center">
+            <div class="mt-8 mobile-actions">
                 <a href="products.html" class="btn-primary inline-flex items-center gap-2">Order Now</a>
                 <a href="https://wa.me/917875353481" target="_blank" rel="noopener noreferrer" class="btn-ghost inline-flex items-center gap-2">Order via WhatsApp</a>
               <a href="#contact" class="btn-ghost inline-flex items-center gap-2">Contact</a>
@@ -236,12 +231,12 @@
     <!-- Product Usage / Industry Section -->
     <section id="usage" class="section max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div class="text-center mb-10">
-        <h2 class="text-3xl md:text-4xl font-bold text-[var(--brand-green)] mb-3">Where Our Powders Work Best</h2>
-        <p class="text-gray-600 mt-2 text-lg">Trusted by businesses and chefs — versatile ingredients for many applications.</p>
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-[var(--brand-green)] mb-3">Where Our Powders Work Best</h2>
+        <p class="text-gray-600 mt-2 text-base sm:text-lg">Trusted by businesses and chefs — versatile ingredients for many applications.</p>
       </div>
 
-      <div class="grid md:grid-cols-2 gap-8 items-start">
-        <div class="bg-gradient-to-br from-white to-green-50/30 rounded-2xl p-8 card-shadow border border-green-100/50">
+      <div class="grid md:grid-cols-2 gap-6 md:gap-8 items-start">
+        <div class="bg-gradient-to-br from-white to-green-50/30 rounded-2xl p-6 sm:p-8 card-shadow border border-green-100/50">
           <h3 class="font-semibold text-xl text-[var(--brand-green)] mb-5 flex items-center gap-2">
             <span class="inline-block w-2 h-8 bg-gradient-to-b from-[var(--brand-green)] to-[var(--brand-dark)] rounded-full"></span>
             Ideal For
@@ -270,12 +265,12 @@
           </ul>
         </div>
 
-        <div class="bg-gradient-to-br from-white to-green-50/30 rounded-2xl p-8 card-shadow border border-green-100/50">
+        <div class="bg-gradient-to-br from-white to-green-50/30 rounded-2xl p-6 sm:p-8 card-shadow border border-green-100/50">
           <h3 class="font-semibold text-xl text-[var(--brand-green)] mb-5 flex items-center gap-2">
             <span class="inline-block w-2 h-8 bg-gradient-to-b from-[var(--brand-green)] to-[var(--brand-dark)] rounded-full"></span>
             Common Uses
           </h3>
-          <div class="grid grid-cols-2 gap-4">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div class="p-5 rounded-xl bg-gradient-to-br from-yellow-50 to-orange-50 text-center transform hover:scale-105 transition-all duration-300 hover:shadow-lg cursor-pointer">
               <div class="text-3xl mb-2">🍳</div>
               <div class="mt-2 font-semibold text-gray-800">Cooking</div>
@@ -330,7 +325,7 @@
     </section>
 
     <!-- Trust indicators -->
-    <section class="section max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 -mt-8">
+    <section class="section max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 mt-0 sm:-mt-8">
       <div class="bg-gradient-to-br from-white to-green-50/30 rounded-3xl p-6 md:p-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 card-shadow border border-green-100/50">
         <div class="flex items-start gap-4 group">
           <div class="p-3 bg-gradient-to-br from-green-100 to-green-50 rounded-xl text-[var(--brand-green)] shadow-md group-hover:shadow-lg transition-all duration-300 group-hover:scale-110">
@@ -376,17 +371,17 @@
 
     <!-- Brand story -->
     <section id="story" class="section max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-      <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
         <div>
-          <h2 class="text-3xl font-bold text-[var(--brand-green)] mb-4">Our Story</h2>
+          <h2 class="text-2xl sm:text-3xl font-bold text-[var(--brand-green)] mb-4">Our Story</h2>
           <p class="text-gray-700 mb-4">ProFarm began as a family farm with a simple purpose: preserve the freshness of farm produce into convenient, nutritious powders. Our founder grew up in the fields and built ProFarm to connect authentic farm quality with modern kitchens.</p>
           <p class="text-gray-600">We partner with local growers, use low-impact drying methods, and package with care — so every jar tells the story of the field it came from.</p>
-          <div class="mt-6 card-shadow p-4 flex items-center gap-4 bg-white rounded-xl">
-            <img src="assets/images/owner.png" alt="Founder" class="w-20 h-20 rounded-lg object-cover shadow-sm" />
+          <div class="mt-6 card-shadow p-4 flex flex-col sm:flex-row items-start sm:items-center gap-4 bg-white rounded-xl">
+            <img src="assets/images/owner.png" alt="Founder" class="w-20 h-20 rounded-lg object-cover shadow-sm mx-auto sm:mx-0" />
             <div class="flex-1">
               <div class="font-semibold text-[var(--brand-dark)]">Ranajit Nalawade — Founder</div>
               <div class="text-sm text-gray-600 mb-3">"We started with one field and one idea: keep food real. Every jar carries that care."</div>
-              <div class="flex items-center gap-4 text-sm">
+              <div class="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 text-sm">
                 <a href="https://linkedin.com/in/ranajit-nalawade-5565551a7" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 text-[var(--brand-green)] hover:text-green-700 transition-colors">
                   <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1。729v20。54２C０ ２３。２２７．７９２ ２４ １。７７１ ２４h２０。４５１C２３。２ ２４ ２４ ２３。２２７ ２４ ２２。２７１V１。７２９C２４ .774 ２３。２ ０ ２２。２２５ ０z"/>
@@ -404,7 +399,7 @@
           </div>
         </div>
         <div class="rounded-2xl overflow-hidden card-shadow">
-          <img src="assets/images/about1.png" alt="Farmer" class="w-full h-80 object-cover" loading="lazy" />
+          <img src="assets/images/about1.png" alt="Farmer" class="w-full h-64 sm:h-80 object-cover" loading="lazy" />
         </div>
       </div>
     </section>
@@ -416,13 +411,13 @@
           <div class="inline-block mb-3">
             <span class="px-4 py-1.5 bg-gradient-to-r from-green-100 to-green-50 text-[var(--brand-green)] rounded-full text-sm font-semibold border border-green-200">Featured Products</span>
           </div>
-          <h2 class="text-3xl md:text-4xl font-bold text-[var(--brand-green)] mb-4">Premium Farm Powders</h2>
-          <p class="text-gray-600 text-lg max-w-2xl mx-auto">Small-batch, hygienic processing, ideal for chefs and producers.</p>
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-[var(--brand-green)] mb-4">Premium Farm Powders</h2>
+          <p class="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto">Small-batch, hygienic processing, ideal for chefs and producers.</p>
         </div>
 
         <div class="grid sm:grid-cols-1 md:grid-cols-1 gap-8">
           <!-- Featured: Onion Powder (single) -->
-          <article class="bg-white rounded-3xl p-8 md:p-10 card-shadow product-card mx-auto max-w-3xl border border-green-50">
+          <article class="bg-white rounded-3xl p-5 sm:p-8 md:p-10 card-shadow product-card mx-auto max-w-3xl border border-green-50">
             <div class="flex flex-col md:flex-row items-start gap-8">
               <div class="w-full md:w-48 flex-shrink-0">
                 <div class="relative group">
@@ -432,7 +427,7 @@
               </div>
 
               <div class="flex-1">
-                <h3 class="text-2xl md:text-3xl font-bold text-[var(--brand-green)] mb-3">Dehydrated Fruites & Vegies Powder</h3>
+                <h3 class="text-xl sm:text-2xl md:text-3xl font-bold text-[var(--brand-green)] mb-3">Dehydrated Fruites & Vegies Powder</h3>
                 <p class="text-gray-600 mt-4 leading-relaxed">Premium dehydrated onion, banana, garlic, moringa,etc.. powder — rich aroma and natural sweetness, ideal for seasoning, sauces and commercial use.</p>
 
                 <div class="mt-5 flex flex-wrap items-center gap-2">
@@ -441,7 +436,7 @@
                   <span class="badge shadow-md" style="background:rgba(139,94,60,0.08);color:var(--earth);border:2px solid rgba(139,94,60,0.2)">Shelf life: 12 months</span>
                 </div>
 
-                <div class="mt-7 flex flex-wrap gap-4">
+                <div class="mt-7 flex flex-col sm:flex-row gap-4">
                   <button type="button" class="btn-primary orderBtn" data-product="Onion Powder">
                     <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
                     Order Now
@@ -459,7 +454,7 @@
     <!-- Farm-to-Product: Horizontal Timeline -->
     <section id="process" class="section max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
       <div class="text-center mb-10">
-        <h2 class="text-3xl font-bold text-[var(--brand-green)]">Farm to Product</h2>
+        <h2 class="text-2xl sm:text-3xl font-bold text-[var(--brand-green)]">Farm to Product</h2>
         <p class="text-gray-600 mt-2 max-w-2xl mx-auto">A transparent, minimal process that preserves flavour and hygiene — from harvest to sealed pack.</p>
       </div>
 
@@ -542,7 +537,7 @@
     <section class="section max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <div class="bg-white rounded-2xl p-6 card-shadow">
         <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-          <div class="flex items-center gap-4">
+          <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 text-center sm:text-left">
             <div class="w-16 h-16 rounded-lg bg-[var(--brand-green)]/8 flex items-center justify-center">
               <svg class="w-8 h-8 text-[var(--brand-green)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M5 13l4 4L19 7"/></svg>
             </div>
@@ -552,7 +547,7 @@
             </div>
           </div>
 
-          <div class="flex items-center gap-6">
+          <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 w-full md:w-auto">
             <div class="text-sm">
               <div class="font-semibold">Certificates</div>
               <div class="text-gray-600">FSSAI • Organic (where applicable) • HACCP-friendly workflows</div>
@@ -570,7 +565,7 @@
     <!-- Gallery Preview -->
     <section class="section max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div class="text-center mb-10">
-          <h2 class="text-3xl font-bold text-[var(--brand-green)]">Gallery</h2>
+          <h2 class="text-2xl sm:text-3xl font-bold text-[var(--brand-green)]">Gallery</h2>
           <p class="text-gray-600 mt-2">Premium powders — small-batch, hygienic processing, ideal for chefs and producers.</p>
         </div>
 
@@ -596,7 +591,7 @@
     <section class="section section--alt bg-[var(--brand-green)]/6 py-16">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-8">
-          <h2 class="text-3xl font-bold text-[var(--brand-green)]">Testimonials</h2>
+          <h2 class="text-2xl sm:text-3xl font-bold text-[var(--brand-green)]">Testimonials</h2>
           <p class="text-gray-600 mt-2">What our customers and partners say</p>
         </div>
         <div class="grid md:grid-cols-3 gap-6">
@@ -620,9 +615,9 @@
     <section id="contact" class="section max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
       <div class="grid md:grid-cols-2 gap-8 items-center">
         <div>
-          <h2 class="text-3xl font-bold text-[var(--brand-green)]">Have a requirement?</h2>
+          <h2 class="text-2xl sm:text-3xl font-bold text-[var(--brand-green)]">Have a requirement?</h2>
           <p class="text-gray-600 mt-4">For samples, bulk orders or product queries, reach out to us — we respond quickly.</p>
-          <div class="mt-6 flex gap-3">
+          <div class="mt-6 flex flex-col sm:flex-row gap-3">
             <a href="#contact" class="inline-block bg-[var(--brand-green)] text-white px-6 py-3 rounded-lg">Send Inquiry</a>
             <a href="https://wa.me/917875353481" class="inline-block border border-[var(--brand-green)] text-[var(--brand-green)] px-6 py-3 rounded-lg">WhatsApp</a>
           </div>
@@ -684,7 +679,7 @@
     <!-- Services Section -->
     <section id="services" class="section max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
       <div class="text-center mb-8">
-        <h2 class="text-3xl font-bold text-[var(--brand-green)]">Services</h2>
+        <h2 class="text-2xl sm:text-3xl font-bold text-[var(--brand-green)]">Services</h2>
         <p class="text-gray-600 mt-2 max-w-2xl mx-auto">Contract processing, private-label, bulk supply and quality documentation tailored for food businesses.</p>
       </div>
 
@@ -728,7 +723,7 @@
           </div>
           <p class="text-sm mt-3 leading-relaxed" style="color:var(--accent-light)">Farm to Kitchen • Natural Powders — hygiene-first processing, sustainably sourced.</p>
           <div class="mt-6">
-            <a href="https://wa.me/917875353481" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-white text-[var(--brand-green)] px-5 py-3 rounded-lg font-semibold hover:bg-green-50 transition-all duration-300 shadow-lg hover:shadow-xl">
+            <a href="https://wa.me/917875353481" target="_blank" rel="noopener noreferrer" class="inline-flex w-full sm:w-auto justify-center items-center gap-2 bg-white text-[var(--brand-green)] px-5 py-3 rounded-lg font-semibold hover:bg-green-50 transition-all duration-300 shadow-lg hover:shadow-xl">
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.76-.867-2.03-.966-.27-.099-.467-.148-.664.149-.198.297-.763.966-.935 1.166-.172.198-.347.223-.644.075-.297-.149-1.255-.462-2.39-1.476-.885-.788-1.48-1.761-1.653-2.059-.172-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.099-.198.05-.371-.025-.52-.075-.148-.664-1.6-.91-2.19-.24-.576-.486-.497-.664-.506l-.566-.01c-.198 0-.52.075-.792.372s-1.04 1.015-1.04 2.479 1.064 2.876 1.213 3.074c.149.198 2.095 3.2 5.077 4.487 0 0 .436.183.783.275.33.091.63.047.868-.029.265-.083 1.76-.708 2.006-1.395.247-.687.247-1.276.173-1.395-.074-.118-.27-.198-.567-.347z"/></svg>
               WhatsApp Us
             </a>
@@ -783,8 +778,8 @@
       </div>
 
       <div class="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-        <div class="text-sm">© <span id="year"></span> ProFarm. All rights reserved. | Made with ❤️ in India</div>
-        <div class="flex items-center gap-6 text-sm">
+        <div class="text-sm text-center md:text-left">© <span id="year"></span> ProFarm. All rights reserved. | Made with ❤️ in India</div>
+        <div class="footer-meta text-sm">
           <span class="px-3 py-1.5 bg-white/10 rounded-lg backdrop-blur-sm border border-white/20">FSSAI Lic. No.: 21526088000901</span>
           <span class="px-3 py-1.5 bg-white/10 rounded-lg backdrop-blur-sm border border-white/20">UDYAM-MH-32-0098688</span>
           <span class="text-[var(--accent-light)]">Organic • Natural • Chemical-Free</span>
